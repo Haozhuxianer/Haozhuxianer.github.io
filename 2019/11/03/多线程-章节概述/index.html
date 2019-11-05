@@ -6,17 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="多线程概述本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。多线程环境，使我们遇到的问题复杂度呈指数级增加，它不是一个单一的，某一特定领域的问题，如：加密解密，算法优化等等。而是将出现这些问题的场景，带到了一个更加复杂的环境里面。就好像牛顿经典力学，在量子领域高速的物理环境并不生效一样，很多简单的单线程问题，在多线程环境下，也会变得更加棘手">
+    <meta name="description" content="多线程-系列文章目录#操作系统 #Java #多线程多线程内容，是对从底层计算机组成结构，操作系统内存管理，任务调度，再到JVM的线程实现，同步机制等等复杂内容的合集。针对复杂内容的学习，是对单块领域知识合并整合的最佳途径。所以文章希望通过从多个角度去学习多线程内容，从而加深对多线程内容的理解，与相关知识网络的拓展 文章更倾向于通过解释某一个或一类问题的方式来展开讨论，具有目的性的理解与思考 系列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多线程-章节概述">
 <meta property="og:url" content="http://yoursite.com/2019/11/03/多线程-章节概述/index.html">
 <meta property="og:site_name" content="🐟">
-<meta property="og:description" content="多线程概述本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。多线程环境，使我们遇到的问题复杂度呈指数级增加，它不是一个单一的，某一特定领域的问题，如：加密解密，算法优化等等。而是将出现这些问题的场景，带到了一个更加复杂的环境里面。就好像牛顿经典力学，在量子领域高速的物理环境并不生效一样，很多简单的单线程问题，在多线程环境下，也会变得更加棘手">
+<meta property="og:description" content="多线程-系列文章目录#操作系统 #Java #多线程多线程内容，是对从底层计算机组成结构，操作系统内存管理，任务调度，再到JVM的线程实现，同步机制等等复杂内容的合集。针对复杂内容的学习，是对单块领域知识合并整合的最佳途径。所以文章希望通过从多个角度去学习多线程内容，从而加深对多线程内容的理解，与相关知识网络的拓展 文章更倾向于通过解释某一个或一类问题的方式来展开讨论，具有目的性的理解与思考 系列">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-03T11:22:13.974Z">
+<meta property="og:image" content="http://yoursite.com/2019/11/03/多线程-章节概述/javaThreadXmind.png">
+<meta property="og:updated_time" content="2019-11-05T02:44:55.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程-章节概述">
-<meta name="twitter:description" content="多线程概述本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。多线程环境，使我们遇到的问题复杂度呈指数级增加，它不是一个单一的，某一特定领域的问题，如：加密解密，算法优化等等。而是将出现这些问题的场景，带到了一个更加复杂的环境里面。就好像牛顿经典力学，在量子领域高速的物理环境并不生效一样，很多简单的单线程问题，在多线程环境下，也会变得更加棘手">
+<meta name="twitter:description" content="多线程-系列文章目录#操作系统 #Java #多线程多线程内容，是对从底层计算机组成结构，操作系统内存管理，任务调度，再到JVM的线程实现，同步机制等等复杂内容的合集。针对复杂内容的学习，是对单块领域知识合并整合的最佳途径。所以文章希望通过从多个角度去学习多线程内容，从而加深对多线程内容的理解，与相关知识网络的拓展 文章更倾向于通过解释某一个或一类问题的方式来展开讨论，具有目的性的理解与思考 系列">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/03/多线程-章节概述/javaThreadXmind.png">
     
     
         
@@ -104,7 +106,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程概述"><span class="toc-number">1.</span> <span class="toc-text">多线程概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。"><span class="toc-number">1.0.1.</span> <span class="toc-text">本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程-系列文章目录"><span class="toc-number">1.</span> <span class="toc-text">多线程-系列文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#操作系统-Java-多线程"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">#操作系统 #Java #多线程</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#系列文章目录"><span class="toc-number">1.1.</span> <span class="toc-text">系列文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#本章为系列文章的目录章节，内容如下（文章内容顺序，可能会根据学习路线变动）"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">本章为系列文章的目录章节，内容如下（文章内容顺序，可能会根据学习路线变动）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新日志"><span class="toc-number">1.1.1.</span> <span class="toc-text">更新日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础脑图"><span class="toc-number">1.1.2.</span> <span class="toc-text">基础脑图</span></a></li>
     </div>
   </span>
 </div>
@@ -130,7 +132,7 @@
       
         <time datetime="2019-11-03T10:41:39.000Z" itemprop="datePublished">2019-11-03</time>
         
-        (Updated: <time datetime="2019-11-03T11:22:13.974Z" itemprop="dateModified">2019-11-03</time>)
+        (Updated: <time datetime="2019-11-05T02:44:55.938Z" itemprop="dateModified">2019-11-05</time>)
         
       
     </div>
@@ -145,8 +147,17 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="多线程概述"><a href="#多线程概述" class="headerlink" title="多线程概述"></a>多线程概述</h1><h3 id="本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。"><a href="#本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。" class="headerlink" title="本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。"></a>本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。</h3><p>多线程环境，使我们遇到的问题复杂度呈指数级增加，它不是一个单一的，某一特定领域的问题，如：加密解密，算法优化等等。而是将出现这些问题的场景，带到了一个更加复杂的环境里面。就好像牛顿经典力学，在量子领域高速的物理环境并不生效一样，很多简单的单线程问题，在多线程环境下，也会变得更加棘手</p>
-
+    <h1 id="多线程-系列文章目录"><a href="#多线程-系列文章目录" class="headerlink" title="多线程-系列文章目录"></a>多线程-系列文章目录</h1><h4 id="操作系统-Java-多线程"><a href="#操作系统-Java-多线程" class="headerlink" title="#操作系统 #Java #多线程"></a>#操作系统 #Java #多线程</h4><p>多线程内容，是对从底层计算机组成结构，操作系统内存管理，任务调度，再到JVM的线程实现，同步机制等等复杂内容的合集。针对复杂内容的学习，是对单块领域知识合并整合的最佳途径。所以文章希望通过从多个角度去学习多线程内容，从而加深对多线程内容的理解，与相关知识网络的拓展</p>
+<p>文章更倾向于通过解释某一个或一类问题的方式来展开讨论，具有目的性的理解与思考</p>
+<h2 id="系列文章目录"><a href="#系列文章目录" class="headerlink" title="系列文章目录"></a>系列文章目录</h2><h5 id="本章为系列文章的目录章节，内容如下（文章内容顺序，可能会根据学习路线变动）"><a href="#本章为系列文章的目录章节，内容如下（文章内容顺序，可能会根据学习路线变动）" class="headerlink" title="本章为系列文章的目录章节，内容如下（文章内容顺序，可能会根据学习路线变动）"></a>本章为系列文章的目录章节，内容如下（文章内容顺序，可能会根据学习路线变动）</h5><p>操作系统篇：</p>
+<p>01.多线程简介 - 为什么会有线程？<br>02.Linux中多线程 - 操作系统级多线程如何使用？<br>03.Linux中多线程 - 操作系统如何实现多线程？<br>04.Linux中多线程 - 线程冲突了怎么办？<br>05.Linux中多线程 - 线程之间如何共享资源？</p>
+<p>语言篇：</p>
+<p>06.Java多线程 - JVM在系统线程上干嘛了？</p>
+<p>设计模式篇：</p>
+<p>07.多线程有哪些设计模式？</p>
+<p>还有一些内容，会在后续学习中逐步添加</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>TODO：01多线程简介 - 为什么会有线程？</p>
+<h3 id="基础脑图"><a href="#基础脑图" class="headerlink" title="基础脑图"></a>基础脑图</h3><img src="/2019/11/03/多线程-章节概述/javaThreadXmind.png">
   </div>
 </article>
 
@@ -175,7 +186,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程概述"><span class="toc-number">1.</span> <span class="toc-text">多线程概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。"><span class="toc-number">1.0.1.</span> <span class="toc-text">本篇文章，是对整个多线程内容的一个起始篇，主要介绍对于多线程整个内容的学习路线，和一些重要知识点的理解。</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程-系列文章目录"><span class="toc-number">1.</span> <span class="toc-text">多线程-系列文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#操作系统-Java-多线程"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">#操作系统 #Java #多线程</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#系列文章目录"><span class="toc-number">1.1.</span> <span class="toc-text">系列文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#本章为系列文章的目录章节，内容如下（文章内容顺序，可能会根据学习路线变动）"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">本章为系列文章的目录章节，内容如下（文章内容顺序，可能会根据学习路线变动）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新日志"><span class="toc-number">1.1.1.</span> <span class="toc-text">更新日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础脑图"><span class="toc-number">1.1.2.</span> <span class="toc-text">基础脑图</span></a></li>
     </div>
 
     <div id="share-footer" style="display: none">
