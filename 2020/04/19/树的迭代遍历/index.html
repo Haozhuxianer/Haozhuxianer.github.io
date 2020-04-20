@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="树的迭代遍历树的递归遍历，是很基础的算法，如何用迭代的方法去解决树的遍历问题，其实和其他递归转迭代的思路是一致的，都是借助栈的结构，来实现迭代遍历。 算法思想1.找到左子树的叶子结点，并将路径上的结点存入栈中 2.通过出栈，回溯父节点，然后再搜索左子树的叶子结点 3.只到当前结点为空，并且栈也为空，则遍历完成 模版代码1234567891011121314151617181920212223242">
+    <meta name="description" content="二叉树的迭代遍历树的递归遍历，是很基础的算法，如何用迭代的方法去解决树的遍历问题，其实和其他递归转迭代的思路是一致的，都是借助栈的结构，来实现迭代遍历。 算法思想1.找到左子树的叶子结点，并将路径上的结点存入栈中 2.通过出栈，回溯父节点，然后再搜索左子树的叶子结点 3.只到当前结点为空，并且栈也为空，则遍历完成 模版代码12345678910111213141516171819202122232">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树的迭代遍历">
+<meta property="og:title" content="二叉树的遍历">
 <meta property="og:url" content="http://yoursite.com/2020/04/19/树的迭代遍历/index.html">
 <meta property="og:site_name" content="🐟">
-<meta property="og:description" content="树的迭代遍历树的递归遍历，是很基础的算法，如何用迭代的方法去解决树的遍历问题，其实和其他递归转迭代的思路是一致的，都是借助栈的结构，来实现迭代遍历。 算法思想1.找到左子树的叶子结点，并将路径上的结点存入栈中 2.通过出栈，回溯父节点，然后再搜索左子树的叶子结点 3.只到当前结点为空，并且栈也为空，则遍历完成 模版代码1234567891011121314151617181920212223242">
+<meta property="og:description" content="二叉树的迭代遍历树的递归遍历，是很基础的算法，如何用迭代的方法去解决树的遍历问题，其实和其他递归转迭代的思路是一致的，都是借助栈的结构，来实现迭代遍历。 算法思想1.找到左子树的叶子结点，并将路径上的结点存入栈中 2.通过出栈，回溯父节点，然后再搜索左子树的叶子结点 3.只到当前结点为空，并且栈也为空，则遍历完成 模版代码12345678910111213141516171819202122232">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-19T13:43:15.332Z">
+<meta property="og:updated_time" content="2020-04-20T04:35:25.954Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树的迭代遍历">
-<meta name="twitter:description" content="树的迭代遍历树的递归遍历，是很基础的算法，如何用迭代的方法去解决树的遍历问题，其实和其他递归转迭代的思路是一致的，都是借助栈的结构，来实现迭代遍历。 算法思想1.找到左子树的叶子结点，并将路径上的结点存入栈中 2.通过出栈，回溯父节点，然后再搜索左子树的叶子结点 3.只到当前结点为空，并且栈也为空，则遍历完成 模版代码1234567891011121314151617181920212223242">
+<meta name="twitter:title" content="二叉树的遍历">
+<meta name="twitter:description" content="二叉树的迭代遍历树的递归遍历，是很基础的算法，如何用迭代的方法去解决树的遍历问题，其实和其他递归转迭代的思路是一致的，都是借助栈的结构，来实现迭代遍历。 算法思想1.找到左子树的叶子结点，并将路径上的结点存入栈中 2.通过出栈，回溯父节点，然后再搜索左子树的叶子结点 3.只到当前结点为空，并且栈也为空，则遍历完成 模版代码12345678910111213141516171819202122232">
     
     
         
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>树的迭代遍历</title>
+    <title>二叉树的遍历</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -92,21 +92,21 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/04/19/树的迭代遍历/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/04/19/树的迭代遍历/&text=树的迭代遍历"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/04/19/树的迭代遍历/&is_video=false&description=树的迭代遍历"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=树的迭代遍历&body=Check out this article: http://yoursite.com/2020/04/19/树的迭代遍历/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/04/19/树的迭代遍历/&name=树的迭代遍历&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/04/19/树的迭代遍历/&text=二叉树的遍历"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/04/19/树的迭代遍历/&is_video=false&description=二叉树的遍历"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=二叉树的遍历&body=Check out this article: http://yoursite.com/2020/04/19/树的迭代遍历/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/04/19/树的迭代遍历/&name=二叉树的遍历&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#树的迭代遍历"><span class="toc-number">1.</span> <span class="toc-text">树的迭代遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法思想"><span class="toc-number">1.1.</span> <span class="toc-text">算法思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模版代码"><span class="toc-number">1.2.</span> <span class="toc-text">模版代码</span></a></li></ol></li></ol>
-    </div>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树的迭代遍历"><span class="toc-number">1.</span> <span class="toc-text">二叉树的迭代遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法思想"><span class="toc-number">1.1.</span> <span class="toc-text">算法思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模版代码"><span class="toc-number">1.2.</span> <span class="toc-text">模版代码</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#二叉树的层序遍历"><span class="toc-number"></span> <span class="toc-text">二叉树的层序遍历</span></a>
+    </li></div>
   </span>
 </div>
 
@@ -117,7 +117,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        树的迭代遍历
+        二叉树的遍历
     </h1>
 
 
@@ -131,7 +131,7 @@
       
         <time datetime="2020-04-19T12:44:18.000Z" itemprop="datePublished">2020-04-19</time>
         
-        (Updated: <time datetime="2020-04-19T13:43:15.332Z" itemprop="dateModified">2020-04-19</time>)
+        (Updated: <time datetime="2020-04-20T04:35:25.954Z" itemprop="dateModified">2020-04-20</time>)
         
       
     </div>
@@ -151,7 +151,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="树的迭代遍历"><a href="#树的迭代遍历" class="headerlink" title="树的迭代遍历"></a>树的迭代遍历</h2><p>树的递归遍历，是很基础的算法，如何用迭代的方法去解决树的遍历问题，其实和其他递归转迭代的思路是一致的，都是借助栈的结构，来实现迭代遍历。</p>
+    <h2 id="二叉树的迭代遍历"><a href="#二叉树的迭代遍历" class="headerlink" title="二叉树的迭代遍历"></a>二叉树的迭代遍历</h2><p>树的递归遍历，是很基础的算法，如何用迭代的方法去解决树的遍历问题，其实和其他递归转迭代的思路是一致的，都是借助栈的结构，来实现迭代遍历。</p>
 <h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p>1.找到左子树的叶子结点，并将路径上的结点存入栈中</p>
 <p>2.通过出栈，回溯父节点，然后再搜索左子树的叶子结点</p>
 <p>3.只到当前结点为空，并且栈也为空，则遍历完成</p>
@@ -162,6 +162,11 @@
 <p>上述代码是通过另一个栈来实现记录的，还有很多方法去记录这个状态，是否被访问过，但基本思路都是一样的。</p>
 <p>什么样的问题，更适合用迭代去解决呢？<br>递归只能通过入参，去改变每次递归的行为模式，而迭代，则是在一个方法内完成，可以更加灵活的去控制，每一次迭代的行为。</p>
 <p>迭代的遍历树，是一个基础的代码结构，可以在这个结构上衍生出很多的算法来。</p>
+<h1 id="二叉树的层序遍历"><a href="#二叉树的层序遍历" class="headerlink" title="二叉树的层序遍历"></a>二叉树的层序遍历</h1><p>层序遍历又叫做广度优先遍历，而前中后序遍历都是深度优先遍历。顾名思义，广度就是优先横向的遍历，遍历完一层，再遍历第二层。二叉树的层序遍历最常见的方法就是借助队列的实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; result = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList();</span><br><span class="line">        queue.offer(root);</span><br><span class="line">        <span class="keyword">int</span> level = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">            result.add(<span class="keyword">new</span> ArrayList());</span><br><span class="line">            <span class="keyword">int</span> levelLength = queue.size();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; levelLength; i++) &#123;</span><br><span class="line">                TreeNode node = queue.poll();</span><br><span class="line">                result.get(level).add(node.val);</span><br><span class="line">                <span class="keyword">if</span>(node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    queue.offer(node.left);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    queue.offer(node.right);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            level++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到上述是一种迭代的实现，进行层序遍历，能否使用递归的方式完成呢？代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; result = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(TreeNode node, <span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result.size() == level) &#123;</span><br><span class="line">          result.add(<span class="keyword">new</span> ArrayList&lt;Integer&gt;());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">         result.get(level).add(node.val);</span><br><span class="line"></span><br><span class="line">         <span class="keyword">if</span> (node.left != <span class="keyword">null</span>)</span><br><span class="line">            helper(node.left, level + <span class="number">1</span>);</span><br><span class="line">         <span class="keyword">if</span> (node.right != <span class="keyword">null</span>)</span><br><span class="line">            helper(node.right, level + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">        fun(root, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从代码中可以看出，其实递归法，就已经不是广度优先遍历了，而是前序遍历（深度优先）的变种。通过level这个变量去记录当前的层数，然后将相同的层数放在同一个集合中，最终输出的结果与层序遍历结果一致。所以如果只需要层序遍历的结果数据，递归法不失为一种更加清晰的方法。而当你需要的是深度遍历的行为时，你只能选择迭代法来解决问题，因为递归法的本质还是深度遍历。</p>
 
   </div>
 </article>
@@ -191,21 +196,21 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#树的迭代遍历"><span class="toc-number">1.</span> <span class="toc-text">树的迭代遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法思想"><span class="toc-number">1.1.</span> <span class="toc-text">算法思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模版代码"><span class="toc-number">1.2.</span> <span class="toc-text">模版代码</span></a></li></ol></li></ol>
-    </div>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树的迭代遍历"><span class="toc-number">1.</span> <span class="toc-text">二叉树的迭代遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法思想"><span class="toc-number">1.1.</span> <span class="toc-text">算法思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模版代码"><span class="toc-number">1.2.</span> <span class="toc-text">模版代码</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#二叉树的层序遍历"><span class="toc-number"></span> <span class="toc-text">二叉树的层序遍历</span></a>
+    </li></div>
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/04/19/树的迭代遍历/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/04/19/树的迭代遍历/&text=树的迭代遍历"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/04/19/树的迭代遍历/&is_video=false&description=树的迭代遍历"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=树的迭代遍历&body=Check out this article: http://yoursite.com/2020/04/19/树的迭代遍历/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=树的迭代遍历"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/04/19/树的迭代遍历/&name=树的迭代遍历&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/04/19/树的迭代遍历/&text=二叉树的遍历"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/04/19/树的迭代遍历/&is_video=false&description=二叉树的遍历"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=二叉树的遍历&body=Check out this article: http://yoursite.com/2020/04/19/树的迭代遍历/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/04/19/树的迭代遍历/&title=二叉树的遍历"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/04/19/树的迭代遍历/&name=二叉树的遍历&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
