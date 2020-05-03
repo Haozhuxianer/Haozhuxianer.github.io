@@ -6,20 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="JVM Internals 读书笔记原文链接：https://blog.jamesdbloom.com/JVMInternals.html#constant_pool  重点的内容都在这张图上 1.PC为什么实际上指向的是方法区的内存地址？PC不是保存的下一条要执行的指令地址吗？为什么指向的是方法区的内存地址。 下一条指令，就是某个类的某个方法的调用，而这个类的具体方法签名就在常量池中。虚拟机栈中">
+    <meta name="description" content="JVM Internals 读书笔记原文链接：https://blog.jamesdbloom.com/JVMInternals.html#constant_pool  pic.jpeg) 1.PC为什么实际上指向的是方法区的内存地址？PC不是保存的下一条要执行的指令地址吗？为什么指向的是方法区的内存地址。 下一条指令，就是某个类的某个方法的调用，而这个类的具体方法签名就在常量池中。虚拟机栈中的栈">
 <meta name="keywords" content="JVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Internals阅读笔记">
+<meta property="og:title" content="JVM Internals 阅读笔记">
 <meta property="og:url" content="http://yoursite.com/2020/05/03/Internals阅读笔记/index.html">
 <meta property="og:site_name" content="🐟">
-<meta property="og:description" content="JVM Internals 读书笔记原文链接：https://blog.jamesdbloom.com/JVMInternals.html#constant_pool  重点的内容都在这张图上 1.PC为什么实际上指向的是方法区的内存地址？PC不是保存的下一条要执行的指令地址吗？为什么指向的是方法区的内存地址。 下一条指令，就是某个类的某个方法的调用，而这个类的具体方法签名就在常量池中。虚拟机栈中">
+<meta property="og:description" content="JVM Internals 读书笔记原文链接：https://blog.jamesdbloom.com/JVMInternals.html#constant_pool  pic.jpeg) 1.PC为什么实际上指向的是方法区的内存地址？PC不是保存的下一条要执行的指令地址吗？为什么指向的是方法区的内存地址。 下一条指令，就是某个类的某个方法的调用，而这个类的具体方法签名就在常量池中。虚拟机栈中的栈">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/Users/yuwenhao/Downloads/JVM_Internal_Architecture.png">
-<meta property="og:updated_time" content="2020-05-03T11:59:09.592Z">
+<meta property="og:updated_time" content="2020-05-03T12:18:55.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Internals阅读笔记">
-<meta name="twitter:description" content="JVM Internals 读书笔记原文链接：https://blog.jamesdbloom.com/JVMInternals.html#constant_pool  重点的内容都在这张图上 1.PC为什么实际上指向的是方法区的内存地址？PC不是保存的下一条要执行的指令地址吗？为什么指向的是方法区的内存地址。 下一条指令，就是某个类的某个方法的调用，而这个类的具体方法签名就在常量池中。虚拟机栈中">
-<meta name="twitter:image" content="http://yoursite.com/Users/yuwenhao/Downloads/JVM_Internal_Architecture.png">
+<meta name="twitter:title" content="JVM Internals 阅读笔记">
+<meta name="twitter:description" content="JVM Internals 读书笔记原文链接：https://blog.jamesdbloom.com/JVMInternals.html#constant_pool  pic.jpeg) 1.PC为什么实际上指向的是方法区的内存地址？PC不是保存的下一条要执行的指令地址吗？为什么指向的是方法区的内存地址。 下一条指令，就是某个类的某个方法的调用，而这个类的具体方法签名就在常量池中。虚拟机栈中的栈">
     
     
         
@@ -39,7 +37,7 @@
         
     
     <!-- title -->
-    <title>Internals阅读笔记</title>
+    <title>JVM Internals 阅读笔记</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -94,15 +92,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/03/Internals阅读笔记/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&text=Internals阅读笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&is_video=false&description=Internals阅读笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Internals阅读笔记&body=Check out this article: http://yoursite.com/2020/05/03/Internals阅读笔记/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&name=Internals阅读笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&text=JVM Internals 阅读笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&is_video=false&description=JVM Internals 阅读笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JVM Internals 阅读笔记&body=Check out this article: http://yoursite.com/2020/05/03/Internals阅读笔记/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&name=JVM Internals 阅读笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -119,7 +117,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Internals阅读笔记
+        JVM Internals 阅读笔记
     </h1>
 
 
@@ -133,7 +131,7 @@
       
         <time datetime="2020-05-03T11:55:11.000Z" itemprop="datePublished">2020-05-03</time>
         
-        (Updated: <time datetime="2020-05-03T11:59:09.592Z" itemprop="dateModified">2020-05-03</time>)
+        (Updated: <time datetime="2020-05-03T12:18:55.636Z" itemprop="dateModified">2020-05-03</time>)
         
       
     </div>
@@ -154,8 +152,7 @@
 
   <div class="content" itemprop="articleBody">
     <h1 id="JVM-Internals-读书笔记"><a href="#JVM-Internals-读书笔记" class="headerlink" title="JVM Internals 读书笔记"></a>JVM Internals 读书笔记</h1><p>原文链接：<a href="https://blog.jamesdbloom.com/JVMInternals.html#constant_pool" target="_blank" rel="noopener">https://blog.jamesdbloom.com/JVMInternals.html#constant_pool</a></p>
-<p><img src="/Users/yuwenhao/Downloads/JVM_Internal_Architecture.png" alt="JVM_Internal_Architecture"></p>
-<p>重点的内容都在这张图上</p>
+<p><img src alt> pic.jpeg)</p>
 <h4 id="1-PC为什么实际上指向的是方法区的内存地址？"><a href="#1-PC为什么实际上指向的是方法区的内存地址？" class="headerlink" title="1.PC为什么实际上指向的是方法区的内存地址？"></a>1.PC为什么实际上指向的是方法区的内存地址？</h4><p>PC不是保存的下一条要执行的指令地址吗？为什么指向的是方法区的内存地址。</p>
 <p>下一条指令，就是某个类的某个方法的调用，而这个类的具体方法签名就在常量池中。虚拟机栈中的栈帧也是持有了一个引用指向常量池</p>
 <h4 id="2-The-stack-is-not-directly-manipulated-except-to-push-and-pop-frame-objects-and-therefore-the-frame-objects-may-be-allocated-in-the-Heap-and-the-memory-does-not-need-to-be-contiguous"><a href="#2-The-stack-is-not-directly-manipulated-except-to-push-and-pop-frame-objects-and-therefore-the-frame-objects-may-be-allocated-in-the-Heap-and-the-memory-does-not-need-to-be-contiguous" class="headerlink" title="2.The stack is not directly manipulated, except to push and pop frame objects, and therefore the frame objects may be allocated in the Heap and the memory does not need to be contiguous."></a>2.The stack is not directly manipulated, except to push and pop frame objects, and therefore the frame objects may be allocated in the Heap and the memory does not need to be contiguous.</h4><p>翻译：栈不能直接被操作，除了出栈和压栈操作，因此栈帧对象被分配在堆上，并且内存不用是连续的</p>
@@ -215,15 +212,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/03/Internals阅读笔记/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&text=Internals阅读笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&is_video=false&description=Internals阅读笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Internals阅读笔记&body=Check out this article: http://yoursite.com/2020/05/03/Internals阅读笔记/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=Internals阅读笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&name=Internals阅读笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&text=JVM Internals 阅读笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&is_video=false&description=JVM Internals 阅读笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JVM Internals 阅读笔记&body=Check out this article: http://yoursite.com/2020/05/03/Internals阅读笔记/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&title=JVM Internals 阅读笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/03/Internals阅读笔记/&name=JVM Internals 阅读笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
